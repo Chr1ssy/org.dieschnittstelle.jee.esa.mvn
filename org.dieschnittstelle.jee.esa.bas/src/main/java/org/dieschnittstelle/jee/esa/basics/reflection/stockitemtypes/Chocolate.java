@@ -1,6 +1,7 @@
 package org.dieschnittstelle.jee.esa.basics.reflection.stockitemtypes;
 
 import org.dieschnittstelle.jee.esa.basics.IStockItem;
+import org.dieschnittstelle.jee.esa.basics.annotations.DisplayAs;
 
 import static org.dieschnittstelle.jee.esa.utils.Utils.*;
 
@@ -9,7 +10,6 @@ public class Chocolate implements IStockItem {
 	private int units;
 	
 	private String brandname;
-	
 	private int price;
 	
 	public Chocolate() {

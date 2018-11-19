@@ -2,6 +2,7 @@ package org.dieschnittstelle.jee.esa.basics;
 
 
 import org.dieschnittstelle.jee.esa.basics.annotations.AnnotatedStockItemBuilder;
+import org.dieschnittstelle.jee.esa.basics.annotations.DisplayAs;
 import org.dieschnittstelle.jee.esa.basics.annotations.StockItemProxyImpl;
 
 import java.lang.reflect.Field;
@@ -20,7 +21,7 @@ public class ShowAnnotations {
 		collection.load();
 
 		for (IStockItem consumable : collection.getStockItems()) {
-			;
+
 			showAttributes(((StockItemProxyImpl)consumable).getProxiedObject());
 		}
 
@@ -33,11 +34,16 @@ public class ShowAnnotations {
 	/*
 	 * UE BAS2 
 	 */
+
 	private static void showAttributes(Object consumable) {
 		String out = consumable.getClass().getSimpleName();
 		for (Field field : consumable.getClass().getDeclaredFields()) {
-			String fieldName =  field.getName();
+            String fieldName =  field.getName();
+			if(field.isAnnotationPresent(DisplayAs.class)){
+			    out += " " +field.getAnnotation(DisplayAs.class).value()  +":";
+			}else{
 			out += " " +fieldName+":";
+			}
 			String getterName = "get"+  field.getName().substring(0,1).toUpperCase() + field.getName().substring(1);
 			for (Method getter :consumable.getClass().getDeclaredMethods()){
 				if(getterName.equals(getter.getName())){

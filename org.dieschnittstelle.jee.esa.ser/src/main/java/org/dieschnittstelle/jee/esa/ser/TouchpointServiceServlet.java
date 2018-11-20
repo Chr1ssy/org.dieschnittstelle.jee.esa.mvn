@@ -83,7 +83,18 @@ public class TouchpointServiceServlet extends HttpServlet {
 
 	}
 
+	protected void doDelet(HttpServletRequest request,
+						   HttpServletResponse response) {
+		TouchpointCRUDExecutor exec = (TouchpointCRUDExecutor)getServletContext() .getAttributeNames();
+		try {
+		ObjectInputStream ois = new ObjectInputStream(request.getInputStream());
+		AbstractTouchpoint tp = (AbstractTouchpoint)ois.readObject();
+		exec.deleteTouchpoint(tp.getId());
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 
+	}
 
 	
 }

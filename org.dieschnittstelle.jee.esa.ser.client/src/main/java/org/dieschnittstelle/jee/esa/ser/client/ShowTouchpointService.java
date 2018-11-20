@@ -9,6 +9,7 @@ import java.util.concurrent.Future;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ByteArrayEntity;
@@ -187,11 +188,23 @@ public class ShowTouchpointService {
 		createClient();
 
 		logger.debug("client running: {}",client.isRunning());
+		try {
 
 		// once you have received a response this is necessary to be able to
+		HttpDelete request = new HttpDelete("http://localhost:8888/org.dieschnittstelle.jee.esa.ser/api/touchpoints");
 		// use the client for subsequent requests:
+		Future<HttpResponse> responseFuture = client.execute(request,null);
+		HttpResponse response = responseFuture.get();
+		if(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+			logger.info("Delet Sucesfull");
+		}else {
+			logger.error("Server response with Http Error Code " + response.getStatusLine().getStatusCode());
+		}
 		// EntityUtils.consume(response.getEntity());
-
+		} catch (Exception e) {
+			logger.error("got exception: " + e, e);
+			throw new RuntimeException(e);
+		}
 	}
 
 	/**

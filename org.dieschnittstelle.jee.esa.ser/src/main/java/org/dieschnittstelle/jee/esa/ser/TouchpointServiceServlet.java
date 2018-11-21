@@ -60,13 +60,13 @@ public class TouchpointServiceServlet extends HttpServlet {
 		// no need to check the uri that has been used
 
 		// obtain the executor for reading out the touchpoints from the servlet context using the touchpointCRUD attribute
-	TouchpointCRUDExecutor exec = (TouchpointCRUDExecutor)getServletContext().getAttributeNames();
+        TouchpointCRUDExecutor exec = (TouchpointCRUDExecutor) getServletContext()
+                .getAttribute("touchpointCRUD");
 		try {
 			// create an ObjectInputStream from the request's input stream
 			ObjectInputStream ois = new ObjectInputStream(request.getInputStream());
 			AbstractTouchpoint tp = (AbstractTouchpoint)ois.readObject();
 			// read an AbstractTouchpoint object from the stream
-
 			// call the create method on the executor and take its return value
 			tp = exec.createTouchpoint(tp);
 			// set the response status as successful, using the appropriate
@@ -82,14 +82,18 @@ public class TouchpointServiceServlet extends HttpServlet {
 		}
 
 	}
-
-	protected void doDelet(HttpServletRequest request,
+    @Override
+    protected void doDelete(HttpServletRequest request,
 						   HttpServletResponse response) {
-		TouchpointCRUDExecutor exec = (TouchpointCRUDExecutor)getServletContext() .getAttributeNames();
+        TouchpointCRUDExecutor exec = (TouchpointCRUDExecutor) getServletContext()
+                .getAttribute("touchpointCRUD");
 		try {
-		ObjectInputStream ois = new ObjectInputStream(request.getInputStream());
-		AbstractTouchpoint tp = (AbstractTouchpoint)ois.readObject();
-		exec.deleteTouchpoint(tp.getId());
+		    String path = request.getPathInfo().trim();
+		    path = path.substring(1);
+		Long tp = Long.parseLong(path);
+		exec.deleteTouchpoint(tp);
+
+		response.setStatus(HttpServletResponse.SC_OK);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

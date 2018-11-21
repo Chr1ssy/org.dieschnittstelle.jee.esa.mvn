@@ -149,11 +149,9 @@ public class ShowTouchpointService {
 			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 
 				// try to read out an object from the response entity
-				ObjectInputStream ois = new ObjectInputStream(response
-						.getEntity().getContent());
+				ObjectInputStream ois = new ObjectInputStream(response.getEntity().getContent());
 
-				List<AbstractTouchpoint> touchpoints = (List<AbstractTouchpoint>) ois
-						.readObject();
+				List<AbstractTouchpoint> touchpoints = (List<AbstractTouchpoint>) ois.readObject();
 
 				logger.info("read touchpoints: " + touchpoints);
 
@@ -191,7 +189,7 @@ public class ShowTouchpointService {
 		try {
 
 		// once you have received a response this is necessary to be able to
-		HttpDelete request = new HttpDelete("http://localhost:8888/org.dieschnittstelle.jee.esa.ser/api/touchpoints");
+		HttpDelete request = new HttpDelete("http://localhost:8888/org.dieschnittstelle.jee.esa.ser/api/touchpoints/"+ tp.getId());
 		// use the client for subsequent requests:
 		Future<HttpResponse> responseFuture = client.execute(request,null);
 		HttpResponse response = responseFuture.get();
@@ -236,7 +234,7 @@ public class ShowTouchpointService {
 			oos.writeObject(tp);
 			// create a ByteArrayEntity and pass it the byte array from the
 			// output stream
-			ByteArrayEntity bae = new ByteArrayEntity(bos.toByteArray());
+            ByteArrayEntity bae = new ByteArrayEntity(bos.toByteArray());
 			// set the entity on the request
 			request.setEntity(bae);
 			// execute the request, which will return a Future<HttpResponse> object

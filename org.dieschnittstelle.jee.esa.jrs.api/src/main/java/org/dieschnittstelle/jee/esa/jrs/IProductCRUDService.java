@@ -1,6 +1,6 @@
 package org.dieschnittstelle.jee.esa.jrs;
 
-import org.dieschnittstelle.jee.esa.entities.erp.IndividualisedProductItem;
+import org.dieschnittstelle.jee.esa.entities.erp.AbstractProduct;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -25,17 +25,17 @@ import java.util.List;
 @Produces({MediaType.APPLICATION_JSON})
 public interface IProductCRUDService {
 	@POST
-	 IndividualisedProductItem createProduct(IndividualisedProductItem prod);
+	AbstractProduct createProduct(AbstractProduct prod);
 	@GET
-	 List<IndividualisedProductItem> readAllProducts();
+	 List<AbstractProduct> readAllProducts();
 	@PUT
-	@Path("/{IndividualisedProductItemId}")
-	IndividualisedProductItem updateProduct(@PathParam("IndividualisedProductItemId")long id,IndividualisedProductItem update);
+	@Path("/{AbstractProductId}")
+	AbstractProduct updateProduct(@PathParam("AbstractProductId")long id,AbstractProduct update);
 	@DELETE
-	@Path("/{IndividualisedProductItemId}")
-	boolean deleteProduct(@PathParam("IndividualisedProductItemId")long id);
+	@Path("/{AbstractProductId}")
+	boolean deleteProduct(@PathParam("AbstractProductId")long id);
 	@GET
-	@Path("/{IndividualisedProductItemId}")
-	IndividualisedProductItem readProduct(@PathParam("IndividualisedProductItemId")long id);
+	@Path("/{AbstractProductId}")
+	AbstractProduct readProduct(@PathParam("AbstractProductId")long id);
 			
 }

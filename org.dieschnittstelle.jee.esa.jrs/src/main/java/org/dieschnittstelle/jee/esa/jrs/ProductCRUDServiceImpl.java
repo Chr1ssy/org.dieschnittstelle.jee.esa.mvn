@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.dieschnittstelle.jee.esa.entities.GenericCRUDExecutor;
 import org.dieschnittstelle.jee.esa.entities.erp.AbstractProduct;
-import org.dieschnittstelle.jee.esa.entities.erp.IndividualisedProductItem;
+
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -23,27 +23,26 @@ public class ProductCRUDServiceImpl implements IProductCRUDService {
 	}
 
 	@Override
-	public IndividualisedProductItem createProduct(
-			IndividualisedProductItem prod) {
+	public AbstractProduct createProduct(
+			AbstractProduct prod) {
 		// TODO Auto-generated method stub
-		return (IndividualisedProductItem) this.productCRUD.createObject(prod);
+		return this.productCRUD.createObject(prod);
 	}
 
 	@Override
-	public List<IndividualisedProductItem> readAllProducts() {
+	public List<AbstractProduct> readAllProducts() {
 		// TODO Auto-generated method stub
-		return (List)this.productCRUD.readAllObjects();
+		return this.productCRUD.readAllObjects();
 	}
 
 	@Override
-	public IndividualisedProductItem updateProduct(long id, IndividualisedProductItem update) {
-		IndividualisedProductItem old = (IndividualisedProductItem) this.productCRUD.readObject(id);
+	public AbstractProduct updateProduct(long id, AbstractProduct update) {
+		AbstractProduct old = this.productCRUD.readObject(id);
 		old.setName(update.getName());
-		old.setExpirationAfterStocked(update.getExpirationAfterStocked());
-		old.setProductType(update.getProductType());
+		//old.setExpirationAfterStocked(update.getExpirationAfterStocked());
+		//old.setProductType(update.getProductType());
 		old.setPrice(update.getPrice());
-		old.onPostUpdate();
-		return (IndividualisedProductItem) this.productCRUD.updateObject(update);
+		return this.productCRUD.updateObject(update);
 	}
 
 	@Override
@@ -53,9 +52,9 @@ public class ProductCRUDServiceImpl implements IProductCRUDService {
 	}
 
 	@Override
-	public IndividualisedProductItem readProduct(long id) {
+	public AbstractProduct readProduct(long id) {
 		// TODO Auto-generated method stub
-		return (IndividualisedProductItem) this.productCRUD.readObject(id);
+		return  this.productCRUD.readObject(id);
 	}
 	
 }

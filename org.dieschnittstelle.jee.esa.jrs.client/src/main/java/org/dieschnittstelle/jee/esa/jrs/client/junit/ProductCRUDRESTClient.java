@@ -3,8 +3,8 @@ package org.dieschnittstelle.jee.esa.jrs.client.junit;
 import java.util.List;
 
 import org.apache.logging.log4j.Logger;
-import org.dieschnittstelle.jee.esa.entities.erp.AbstractProduct;
-import org.dieschnittstelle.jee.esa.entities.erp.IndividualisedProductItem;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.AbstractProduct;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.IndividualisedProductItem;
 
 import org.dieschnittstelle.jee.esa.jrs.IProductCRUDService;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;

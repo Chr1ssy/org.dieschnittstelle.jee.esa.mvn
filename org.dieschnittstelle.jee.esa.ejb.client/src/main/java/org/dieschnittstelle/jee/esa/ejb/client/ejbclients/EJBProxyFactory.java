@@ -4,18 +4,14 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.apache.logging.log4j.Logger;
 import org.dieschnittstelle.jee.esa.ejb.client.Constants;
 import org.dieschnittstelle.jee.esa.entities.crm.AbstractTouchpoint;
-import org.dieschnittstelle.jee.esa.entities.erp.AbstractProduct;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.AbstractProduct;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import java.io.FileInputStream;
 import java.util.Properties;
-
-import static org.dieschnittstelle.jee.esa.utils.Utils.show;
 
 /*
  * Created by master on 17.02.17.

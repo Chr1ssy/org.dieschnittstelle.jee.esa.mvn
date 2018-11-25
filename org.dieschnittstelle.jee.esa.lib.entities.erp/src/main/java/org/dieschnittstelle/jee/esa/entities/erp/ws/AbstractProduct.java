@@ -1,10 +1,10 @@
-package org.dieschnittstelle.jee.esa.entities.erp;
+package org.dieschnittstelle.jee.esa.entities.erp.ws;
+
+import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.apache.logging.log4j.Logger;
 import org.dieschnittstelle.jee.esa.entities.GenericCRUDEntity;
-
-import java.io.Serializable;
 
 /*
  * UE JRS3: entfernen Sie die Auskommentierung der Annotation

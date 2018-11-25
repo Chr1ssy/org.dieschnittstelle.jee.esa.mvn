@@ -61,9 +61,5 @@ public class TouchpointCRUDServiceRESTImpl implements ITouchpointCRUDServiceREST
 			throw new NotFoundException("the touchpoint with id " + id + " does not exist!");
 		}
 	}
-	
-	/*
-	 * UE JRS: implement the method for updating touchpoints
-	 */
 
 }

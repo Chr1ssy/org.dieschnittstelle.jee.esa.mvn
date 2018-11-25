@@ -14,7 +14,7 @@ import org.dieschnittstelle.jee.esa.entities.crm.CustomerTransaction;
 import org.dieschnittstelle.jee.esa.ejb.client.ejbclients.CampaignTrackingClient;
 import org.dieschnittstelle.jee.esa.ejb.client.ejbclients.CustomerTrackingClient;
 import org.dieschnittstelle.jee.esa.ejb.client.ejbclients.ShoppingCartClient;
-import org.dieschnittstelle.jee.esa.entities.erp.AbstractProduct;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.AbstractProduct;
 import org.dieschnittstelle.jee.esa.entities.erp.Campaign;
 
 public class ShoppingSession implements ShoppingBusinessDelegate {

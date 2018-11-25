@@ -13,6 +13,7 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 import org.apache.logging.log4j.Logger;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.IndividualisedProductItem;
 
 //@Entity
 @Table(name = "stock")

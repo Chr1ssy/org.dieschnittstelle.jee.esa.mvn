@@ -6,9 +6,9 @@ import org.dieschnittstelle.jee.esa.entities.crm.Gender;
 import org.dieschnittstelle.jee.esa.entities.crm.MobileTouchpoint;
 import org.dieschnittstelle.jee.esa.entities.crm.StationaryTouchpoint;
 import org.dieschnittstelle.jee.esa.entities.erp.Campaign;
-import org.dieschnittstelle.jee.esa.entities.erp.IndividualisedProductItem;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.IndividualisedProductItem;
 import org.dieschnittstelle.jee.esa.entities.erp.ProductBundle;
-import org.dieschnittstelle.jee.esa.entities.erp.ProductType;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.ProductType;
 
 /**
  * lorem this class specifies a couple of entities for the domain objects that

@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.dieschnittstelle.jee.esa.ejb.client.Constants;
 import org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp.crud.ProductCRUDRemote;
-import org.dieschnittstelle.jee.esa.entities.erp.AbstractProduct;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.AbstractProduct;
 
 public class ProductCRUDClient implements ProductCRUDRemote {
 

@@ -7,9 +7,8 @@ import static org.dieschnittstelle.jee.esa.ejb.client.Constants.*;
 import org.dieschnittstelle.jee.esa.ejb.client.Constants;
 import org.dieschnittstelle.jee.esa.ejb.client.ejbclients.EJBProxyFactory;
 import org.dieschnittstelle.jee.esa.ejb.client.ejbclients.ProductCRUDClient;
-import org.dieschnittstelle.jee.esa.entities.erp.AbstractProduct;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.AbstractProduct;
 import org.dieschnittstelle.jee.esa.entities.erp.Campaign;
-import org.dieschnittstelle.jee.esa.entities.erp.ProductBundle;
 import org.junit.Before;
 import org.junit.Test;
 

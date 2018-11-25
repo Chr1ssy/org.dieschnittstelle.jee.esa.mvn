@@ -1,10 +1,11 @@
-package org.dieschnittstelle.jee.esa.entities.erp;
+package org.dieschnittstelle.jee.esa.entities.erp.ws;
+
+import java.io.Serializable;
 
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.logging.log4j.Logger;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 public class IndividualisedProductItem extends AbstractProduct implements Serializable {
 
@@ -23,7 +24,7 @@ public class IndividualisedProductItem extends AbstractProduct implements Serial
 		logger.info("<constructor>");
 	}
 	
-	public IndividualisedProductItem(String name, ProductType type, int expirationAfterStocked) {
+	public IndividualisedProductItem(String name,ProductType type,int expirationAfterStocked) {
 		super(name);
 		this.productType = type;
 		this.expirationAfterStocked = expirationAfterStocked;

@@ -15,7 +15,7 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Transient;
 
 import org.apache.logging.log4j.Logger;
-import org.dieschnittstelle.jee.esa.entities.erp.AbstractProduct;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.AbstractProduct;
 
 /**
  * a product bundle on the part of the crm system that tracks the number of

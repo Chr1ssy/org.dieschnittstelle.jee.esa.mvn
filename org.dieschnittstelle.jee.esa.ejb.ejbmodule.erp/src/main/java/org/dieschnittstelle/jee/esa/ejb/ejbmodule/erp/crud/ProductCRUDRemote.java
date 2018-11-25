@@ -2,7 +2,7 @@ package org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp.crud;
 
 import java.util.List;
 
-import org.dieschnittstelle.jee.esa.entities.erp.AbstractProduct;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.AbstractProduct;
 
 /*
  * TODO JPA3:

@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.logging.log4j.Logger;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.AbstractProduct;
 
 import javax.persistence.*;
 

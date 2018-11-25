@@ -11,7 +11,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import org.dieschnittstelle.jee.esa.entities.crm.ShoppingCartItem;
-import org.dieschnittstelle.jee.esa.entities.erp.AbstractProduct;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.AbstractProduct;
 import org.dieschnittstelle.jee.esa.jsf.Constants;
 import org.dieschnittstelle.jee.esa.jsf.model.ShoppingCartModel;
 import org.apache.log4j.Logger;

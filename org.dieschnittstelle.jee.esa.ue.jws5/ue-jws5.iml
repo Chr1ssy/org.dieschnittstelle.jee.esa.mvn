@@ -12,6 +12,11 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.jboss.resteasy:resteasy-client:4.0.0.Beta6" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.resteasy:resteasy-client-api:4.0.0.Beta6" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.resteasy:resteasy-core-spi:4.0.0.Beta6" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.resteasy:resteasy-core:4.0.0.Beta6" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.spec.javax.ws.rs:jboss-jaxrs-api_2.1_spec:1.0.2.Final" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.11.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.11.1" level="project" />
     <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />

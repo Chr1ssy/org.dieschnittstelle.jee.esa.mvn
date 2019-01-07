@@ -3,6 +3,7 @@ package org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp.crud;
 import java.util.List;
 
 import javax.ejb.Local;
+import javax.ejb.Remote;
 
 import org.dieschnittstelle.jee.esa.entities.erp.IndividualisedProductItem;
 import org.dieschnittstelle.jee.esa.entities.erp.PointOfSale;
@@ -13,6 +14,7 @@ import org.dieschnittstelle.jee.esa.entities.erp.StockItem;
  * this interface shall be implemented using a stateless EJB with an EntityManager.
  * See the comments below for hints at how to implement the methods
  */
+@Remote
 public interface StockItemCRUDLocal {
 
     /*

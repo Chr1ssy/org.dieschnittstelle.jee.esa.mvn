@@ -12,20 +12,20 @@ public class ProductCRUDClient implements ProductCRUDRemote {
 
 	public ProductCRUDClient() throws Exception {
 		// TODO: obtain a proxy specifying the ejb interface and uri. Let all subsequent methods use the proxy.
-//		this.ejbProxy = EJBProxyFactory.getInstance().getProxy(null,"");
+	this.ejbProxy = EJBProxyFactory.getInstance().getProxy(ProductCRUDRemote.class,"org.dieschnittstelle.jee.esa.ejb/org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp/ProductCRUDStateless!org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp.crud.ProductCRUDRemote");
 	}
 
 	public AbstractProduct createProduct(AbstractProduct prod) {
 
 		// TODO: KOMMENTIEREN SIE DIE FOLGENDE ZUWEISUNG VON IDs UND DIE RETURN-ANWEISUNG AUS
-		prod.setId(Constants.nextId());
-		return prod;
+		//prod.setId(Constants.nextId());
+		//return prod;
 
 		// TODO: KOMMENTIEREN SIE DEN FOLGENDEN CODE EIN
-//		AbstractProduct created = ejbProxy.createProduct(prod);
-//		// as a side-effect we set the id of the created product on the argument before returning
-//		prod.setId(created.getId());
-//		return created;
+		AbstractProduct created = ejbProxy.createProduct(prod);
+		// as a side-effect we set the id of the created product on the argument before returning
+		prod.setId(created.getId());
+		return created;
 	}
 
 	public List<AbstractProduct> readAllProducts() {

@@ -3,7 +3,7 @@ package org.dieschnittstelle.jee.esa.ejb.ejbmodule.crm.shopping;
 import org.dieschnittstelle.jee.esa.ejb.ejbmodule.crm.ShoppingException;
 import org.dieschnittstelle.jee.esa.entities.crm.AbstractTouchpoint;
 import org.dieschnittstelle.jee.esa.entities.crm.Customer;
-import org.dieschnittstelle.jee.esa.entities.erp.AbstractProduct;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.AbstractProduct;
 
 public interface ShoppingSessionFacadeRemote {
 

@@ -1,4 +1,4 @@
-package org.dieschnittstelle.jee.esa.ue.jws4;
+package org.dieschnittstelle.jee.esa.ser;
 
 import java.io.File;
 
@@ -7,9 +7,9 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 import org.dieschnittstelle.jee.esa.entities.GenericCRUDExecutor;
-import org.dieschnittstelle.jee.esa.entities.erp.AbstractProduct;
-import org.dieschnittstelle.jee.esa.entities.erp.IndividualisedProductItem;
-import org.dieschnittstelle.jee.esa.entities.erp.ProductType;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.AbstractProduct;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.IndividualisedProductItem;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.ProductType;
 import org.apache.logging.log4j.Logger;
 
 /*

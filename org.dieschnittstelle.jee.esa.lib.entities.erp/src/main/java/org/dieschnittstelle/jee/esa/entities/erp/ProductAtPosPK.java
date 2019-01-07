@@ -1,5 +1,7 @@
 package org.dieschnittstelle.jee.esa.entities.erp;
 
+import org.dieschnittstelle.jee.esa.entities.erp.ws.IndividualisedProductItem;
+
 import java.io.Serializable;
 
 

@@ -9,7 +9,7 @@ import org.dieschnittstelle.jee.esa.ejb.client.ejbclients.EJBProxyFactory;
 import org.dieschnittstelle.jee.esa.ejb.client.ejbclients.ProductCRUDClient;
 import org.dieschnittstelle.jee.esa.ejb.client.ejbclients.StockSystemClient;
 import org.dieschnittstelle.jee.esa.ejb.client.ejbclients.TouchpointAccessClient;
-import org.dieschnittstelle.jee.esa.entities.erp.IndividualisedProductItem;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.IndividualisedProductItem;
 import org.junit.Before;
 import org.junit.Test;
 

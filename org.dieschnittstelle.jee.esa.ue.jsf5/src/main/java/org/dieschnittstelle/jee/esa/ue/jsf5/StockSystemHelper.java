@@ -22,9 +22,9 @@ import org.dieschnittstelle.jee.esa.entities.crm.StationaryTouchpoint;
 import org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp.StockSystemRemote;
 import org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp.crud.ProductCRUDRemote;
 import org.dieschnittstelle.jee.esa.entities.erp.Campaign;
-import org.dieschnittstelle.jee.esa.entities.erp.IndividualisedProductItem;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.IndividualisedProductItem;
 import org.dieschnittstelle.jee.esa.entities.erp.ProductBundle;
-import org.dieschnittstelle.jee.esa.entities.erp.ProductType;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.ProductType;
 import org.apache.log4j.Logger;
 
 @Named

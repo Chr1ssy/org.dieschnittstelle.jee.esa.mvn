@@ -1,6 +1,6 @@
 package org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp;
 
-import org.dieschnittstelle.jee.esa.entities.erp.IndividualisedProductItem;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.IndividualisedProductItem;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package org.dieschnittstelle.jee.esa.jrs;
 
-import org.dieschnittstelle.jee.esa.entities.erp.AbstractProduct;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.AbstractProduct;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

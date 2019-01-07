@@ -3,7 +3,7 @@ package org.dieschnittstelle.jee.esa.jrs;
 import java.util.List;
 
 import org.dieschnittstelle.jee.esa.entities.GenericCRUDExecutor;
-import org.dieschnittstelle.jee.esa.entities.erp.AbstractProduct;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.AbstractProduct;
 
 
 import javax.servlet.ServletContext;

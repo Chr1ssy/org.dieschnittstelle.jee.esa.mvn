@@ -3,7 +3,7 @@ package org.dieschnittstelle.jee.esa.ejb.client.ejbclients;
 import java.util.List;
 
 import org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp.StockSystemRemote;
-import org.dieschnittstelle.jee.esa.entities.erp.IndividualisedProductItem;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.IndividualisedProductItem;
 
 public class StockSystemClient implements StockSystemRemote {
 

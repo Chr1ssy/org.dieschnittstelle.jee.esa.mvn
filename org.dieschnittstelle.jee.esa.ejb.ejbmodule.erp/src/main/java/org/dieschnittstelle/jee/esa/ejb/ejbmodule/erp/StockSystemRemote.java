@@ -2,7 +2,7 @@ package org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp;
 
 import java.util.List;
 
-import org.dieschnittstelle.jee.esa.entities.erp.IndividualisedProductItem;
+import org.dieschnittstelle.jee.esa.entities.erp.ws.IndividualisedProductItem;
 
 /**
  * TODO JPA4:

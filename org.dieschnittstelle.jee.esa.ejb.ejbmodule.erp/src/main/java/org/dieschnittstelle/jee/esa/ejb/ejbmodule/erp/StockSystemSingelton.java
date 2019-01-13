@@ -25,13 +25,13 @@ public class StockSystemSingelton implements StockSystemRemote {
     private StockItemCRUDLocal siCRUD;
     @Override
     public void addToStock(IndividualisedProductItem product, long pointOfSaleId, int units) {
-        PointOfSale pos =posCRUD.readPointOfSale(pointOfSaleId);
+        PointOfSale pos = posCRUD.readPointOfSale(pointOfSaleId);
         StockItem si = siCRUD.readStockItem(product, pos);
         if (si == null){
             si = new StockItem(product,pos,units);
-            siCRUD.updateStockItem(si);
+            siCRUD.createStockItem(si);
         }else{
-            si.setUnits(si.getUnits()+units);
+            si.setUnits(si.getUnits() + units);
             siCRUD.updateStockItem(si);
 
         }

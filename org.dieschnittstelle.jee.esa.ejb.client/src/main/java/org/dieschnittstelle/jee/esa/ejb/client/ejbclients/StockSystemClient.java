@@ -12,7 +12,7 @@ public class StockSystemClient implements StockSystemRemote {
 	public StockSystemClient() throws Exception {
 		// TODO: obtain a proxy specifying the ejb interface and uri. Let all subsequent methods use the proxy.
 		//url aus log einfügen nach Stocksystemremote suchen
-		this.ejbProxy = EJBProxyFactory.getInstance().getProxy(StockSystemRemote.class,"ejb:org.dieschnittstelle.jee.esa.ejb/org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp/StockSystemSingleton!org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp.StockSystemRemote");
+		this.ejbProxy = EJBProxyFactory.getInstance().getProxy(StockSystemRemote.class,"ejb:org.dieschnittstelle.jee.esa.ejb/org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp/StockItemCRUDStateless!org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp.crud.StockItemCRUDLocal");
 	}
 	
 	

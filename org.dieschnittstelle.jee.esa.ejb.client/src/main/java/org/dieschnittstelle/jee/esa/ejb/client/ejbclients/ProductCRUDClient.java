@@ -12,7 +12,7 @@ public class ProductCRUDClient implements ProductCRUDRemote {
 
 	public ProductCRUDClient() throws Exception {
 		// TODO: obtain a proxy specifying the ejb interface and uri. Let all subsequent methods use the proxy.
-	this.ejbProxy = EJBProxyFactory.getInstance().getProxy(ProductCRUDRemote.class,"org.dieschnittstelle.jee.esa.ejb/org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp/ProductCRUDStateless!org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp.crud.ProductCRUDRemote");
+	this.ejbProxy = EJBProxyFactory.getInstance().getProxy(ProductCRUDRemote.class,"ejb:org.dieschnittstelle.jee.esa.ejb/org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp/ProductCRUDStateless!org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp.crud.ProductCRUDRemote");
 	}
 
 	public AbstractProduct createProduct(AbstractProduct prod) {

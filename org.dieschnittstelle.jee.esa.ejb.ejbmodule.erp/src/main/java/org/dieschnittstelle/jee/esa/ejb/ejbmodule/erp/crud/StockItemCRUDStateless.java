@@ -31,7 +31,8 @@ public class StockItemCRUDStateless implements StockItemCRUDLocal {
 
     @Override
     public StockItem updateStockItem(StockItem item) {
-        return null;
+
+        return em.merge(item);
     }
 
     @Override

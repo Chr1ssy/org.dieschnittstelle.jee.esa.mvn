@@ -5,11 +5,13 @@ import org.dieschnittstelle.jee.esa.entities.erp.PointOfSale;
 import org.dieschnittstelle.jee.esa.entities.erp.ProductAtPosPK;
 import org.dieschnittstelle.jee.esa.entities.erp.StockItem;
 
+import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 @Stateless
+@Local(StockItemCRUDLocal.class)
 public class StockItemCRUDStateless implements StockItemCRUDLocal {
     @PersistenceContext(unitName = "erp_PU")
     private EntityManager em;

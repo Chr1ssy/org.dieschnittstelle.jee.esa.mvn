@@ -44,11 +44,11 @@ public class TotalUsecase {
 	private boolean stepping = true;
 	// allow to switch error provocation from outside via setting this attribute
 	// TODO: ADD4: set to true for testing ShoppingException, set to false for testing success-case for transactions
-	private boolean provokeErrorOnPurchase = false /*true*/;
+	private boolean provokeErrorOnPurchase = true /*true*/;
 
 	// TODO: PAT1: set to true for testing facade
 	// TODO: ADD4: set to true for testing success-case for transactions and ShoppingException
-	private boolean useShoppingSessionFacade = false /*true*/;
+	private boolean useShoppingSessionFacade = true /*true*/; // PAT1
 
 	// declare the attributes that will be instantiated with the ejb clients - note that the attributes use the remote interface types
 	private ProductCRUDRemote productCRUD;

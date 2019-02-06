@@ -2,12 +2,9 @@ package org.dieschnittstelle.jee.esa.ejb.ejbmodule.crm.shopping;
 
 import org.apache.logging.log4j.Logger;
 
-import org.dieschnittstelle.jee.esa.ejb.ejbmodule.crm.CampaignTrackingRemote;
-import org.dieschnittstelle.jee.esa.ejb.ejbmodule.crm.CustomerTrackingRemote;
-import org.dieschnittstelle.jee.esa.ejb.ejbmodule.crm.ShoppingCartRemote;
-import org.dieschnittstelle.jee.esa.ejb.ejbmodule.crm.ShoppingException;
-import org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp.StockSystemRemote;
-import org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp.crud.ProductCRUDRemote;
+import org.dieschnittstelle.jee.esa.ejb.ejbmodule.crm.*;
+import org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp.StockSystemLocal;
+import org.dieschnittstelle.jee.esa.ejb.ejbmodule.erp.crud.ProductCRUDLocal;
 import org.dieschnittstelle.jee.esa.entities.crm.AbstractTouchpoint;
 import org.dieschnittstelle.jee.esa.entities.crm.Customer;
 import org.dieschnittstelle.jee.esa.entities.crm.CustomerTransaction;
@@ -34,16 +31,16 @@ public class ShoppingSessionFacadeStateful implements ShoppingSessionFacadeRemot
      */
 
     @EJB
-    private ShoppingCartRemote shoppingCart;
+    private ShoppingCartLocal shoppingCart;
     @EJB
-    private CustomerTrackingRemote customerTracking;
+    private CustomerTrackingLocal customerTracking;
     @EJB
-    private CampaignTrackingRemote campaignTracking;
+    private CampaignTrackingLocal campaignTracking;
 
     @EJB
-    private ProductCRUDRemote productCRUD;
+    private ProductCRUDLocal productCRUD;
     @EJB
-    private StockSystemRemote stockSystem;
+    private StockSystemLocal stockSystem;
 
     private Customer customer;
     private AbstractTouchpoint touchpoint;

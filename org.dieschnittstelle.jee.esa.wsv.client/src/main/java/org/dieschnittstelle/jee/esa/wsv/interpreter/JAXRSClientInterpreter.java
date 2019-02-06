@@ -6,12 +6,11 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+
+import org.apache.http.client.methods.*;
 import org.apache.logging.log4j.Logger;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 
@@ -19,9 +18,6 @@ import org.apache.http.HttpEntityEnclosingRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.util.EntityUtils;
 
@@ -55,6 +51,13 @@ public class JAXRSClientInterpreter implements InvocationHandler {
     public JAXRSClientInterpreter(Class serviceInterface,String baseurl) {
 
         // TODO: implement the constructor!
+        this.serviceInterface = serviceInterface;
+        this.baseurl = baseurl;
+
+        if (serviceInterface.isAnnotationPresent(Path.class)) {
+            this.commonPath = ((Path)serviceInterface.getAnnotation(Path.class)).value();
+        }
+
 
         logger.info("<constructor>: " + serviceInterface + " / " + baseurl + " / " + commonPath);
     }
@@ -65,14 +68,20 @@ public class JAXRSClientInterpreter implements InvocationHandler {
             throws Throwable {
 
         // TODO check whether we handle the toString method and give some appropriate return value
+        if ("toString".equals(meth.getName())){
+            return "Proxy for " + this.serviceInterface;
+        }
 
         // use a default http client
         HttpClient client = Http.createSyncClient();
 
         // TODO: create the url using baseurl and commonpath (further segments may be added if the method has an own @Path annotation)
-        String url = null;
+        String url = this.baseurl + this.commonPath;
 
         // TODO: check whether we have a path annotation and append the url (path params will be handled when looking at the method arguments)
+        if(meth.isAnnotationPresent(Path.class)) {
+            url += ((Path)meth.getAnnotation(Path.class)).value();
+        }
 
         // a value that needs to be sent via the http request body
         Object bodyValue = null;
@@ -81,7 +90,14 @@ public class JAXRSClientInterpreter implements InvocationHandler {
         if (args != null && args.length > 0) {
             if (meth.getParameterAnnotations()[0].length > 0 && meth.getParameterAnnotations()[0][0].annotationType() == PathParam.class) {
                 // TODO: handle PathParam on the first argument - do not forget that in this case we might have a second argument providing a bodyValue
-                // TODO: if we have a path param, we need to replace the corresponding pattern in the url with the parameter value
+                url = url.replace("{touchpointId}", args[0].toString());
+                if(args.length > 1) { bodyValue = args[1]; }
+
+                show("urlreplace is %s", url);
+                show("bodyValue is %s", bodyValue);
+
+
+
             }
             else {
                 // if we do not have a path param, we assume the argument value will be sent via the body of the request
@@ -93,6 +109,18 @@ public class JAXRSClientInterpreter implements InvocationHandler {
         HttpUriRequest request = null;
 
         // TODO: check which of the http method annotation is present and instantiate request accordingly passing the url
+        if (meth.isAnnotationPresent(GET.class)) {
+            request = new HttpGet(url);
+        } else if (meth.isAnnotationPresent(POST.class)){
+            request = new HttpPost(url);
+        } else if (meth.isAnnotationPresent(DELETE.class)) {
+            request = new HttpDelete(url);
+        } else if (meth.isAnnotationPresent(PUT.class)) {
+            request = new HttpPut(url);
+        } else {
+            throw new UnsupportedOperationException("Only GET, POST, PUT, DELETE");
+        }
+
 
         // TODO: add a header on the request declaring that we accept json (for header names, you can use the constants declared in javax.ws.rs.core.HttpHeaders, for content types use the constants from javax.ws.rs.core.MediaType;)
 
@@ -103,15 +131,15 @@ public class JAXRSClientInterpreter implements InvocationHandler {
         if (bodyValue != null) {
 
             // TODO: use a ByteArrayOutputStream for writing json
-
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
             // TODO: write the object to the stream using the jsonSerialiser
-
+            jsonSerialiser.writeObject(bodyValue, bos);
             // TODO: create an ByteArrayEntity from the stream's content
-
+            bae = new ByteArrayEntity(bos.toByteArray());
             // TODO: set the entity on the request, which must be cast to HttpEntityEnclosingRequest
-
+            ((HttpEntityEnclosingRequest) request).setEntity(bae);
             // TODO: and add a content type header for the request
-
+            request.setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON);
         }
 
         logger.info("invoke(): executing request: " + request);
@@ -129,7 +157,13 @@ public class JAXRSClientInterpreter implements InvocationHandler {
 
             // TODO: convert the resonse body to a java object of an appropriate type considering the return type of the method and set the object as value of returnValue
             // if the return type of the mis a generic type, getGenericReturnType() will return a non null result, otherwise use getReturnType()
-
+            Type returnType = null;
+            if (meth.getGenericReturnType() != null){
+                returnType  = meth.getGenericReturnType();
+            } else {
+                returnType = meth.getReturnType();
+            }
+            returnValue = jsonSerialiser.readObject(response.getEntity().getContent(), returnType);
             // don't forget to cleanup the entity using EntityUtils.consume()
             if (bae != null) {
                 EntityUtils.consume(bae);

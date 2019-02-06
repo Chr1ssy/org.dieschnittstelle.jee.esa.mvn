@@ -1,6 +1,7 @@
 package org.dieschnittstelle.jee.esa.wsv.client;
 
 import java.io.IOException;
+import java.lang.reflect.Proxy;
 import java.util.List;
 
 import org.apache.logging.log4j.Logger;
@@ -26,12 +27,12 @@ public class AccessRESTServiceWithInterpreter {
 		 * TODO: create an instance of the invocation handler passing the service
 		 * interface and the base url
 		 */
-        JAXRSClientInterpreter invocationHandler = null;
+        JAXRSClientInterpreter invocationHandler = new JAXRSClientInterpreter(ITouchpointCRUDService.class, "http://localhost:8888/org.dieschnittstelle.jee.esa.jrs/api");
 
 		/*
 		 * TODO: create a client for the web service using Proxy.newProxyInstance()
 		 */
-        ITouchpointCRUDService serviceProxy = null;
+        ITouchpointCRUDService serviceProxy = (ITouchpointCRUDService) Proxy.newProxyInstance(AccessRESTServiceWithInterpreter.class.getClassLoader(), new Class[]{ITouchpointCRUDService.class}, invocationHandler);
 
         show("serviceProxy: " + serviceProxy);
 
@@ -43,12 +44,13 @@ public class AccessRESTServiceWithInterpreter {
 
 
         // TODO: comment-in the call to delete() once this is handled by the invocation handler
-//		// 2) delete the touchpoint if there is one
-//		if (tps.size() > 0) {
-//          step();
-//			show("deleted: "
-//					+ serviceProxy.deleteTouchpoint(tps.get(0).getId()));
-//		}
+//	    2) delete the touchpoint if there is one
+            if (tps.size() > 0) {
+              step();
+              show("deleted: "
+//
+					+ serviceProxy.deleteTouchpoint(tps.get(0).getId()));
+		}
 //
 //		// 3) create a new touchpoint
         step();
@@ -64,7 +66,7 @@ public class AccessRESTServiceWithInterpreter {
 //		/*
 //		 * 4) read out the new touchpoint
 //		 */
-//		show("read created: " + serviceProxy.readTouchpoint(tp.getId()));
+		show("read created: " + serviceProxy.readTouchpoint(tp.getId()));
 //
 
         // TODO: comment-in the call to update() once this is handled
@@ -73,11 +75,11 @@ public class AccessRESTServiceWithInterpreter {
 //		 */
 //		// change the name
 //		step();
-//		tp.setName("BHT Mensa");
+	tp.setName("BHT Mensa");
 //
 //
-//		tp = serviceProxy.updateTouchpoint(tp.getId(), tp);
-//		show("updated: " + tp);
+		tp = serviceProxy.updateTouchpoint(tp.getId(), tp);
+		show("updated: " + tp);
 
     }
 

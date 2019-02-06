@@ -25,7 +25,7 @@ import java.util.List;
 
 @Stateful
 @Remote(ShoppingSessionFacadeRemote.class)
-public class ShoppingSessionFacadeStateful implements ShoppingSessionFacadeRemote{
+public class ShoppingSessionFacadeStateful implements ShoppingSessionFacadeRemote {
 
     protected Logger logger = org.apache.logging.log4j.LogManager.getLogger(ShoppingSessionFacadeStateful.class);
 

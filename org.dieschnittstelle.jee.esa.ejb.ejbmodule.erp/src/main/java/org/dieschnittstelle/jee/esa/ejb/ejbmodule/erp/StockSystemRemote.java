@@ -13,7 +13,7 @@ import javax.jws.WebService;
  * local interface below, comments will give some hints at how the implementation could be done
  */
 @Remote
-@WebService
+@WebService(targetNamespace = "http://dieschnittstelle.org/jee/esa/jws")
 public interface StockSystemRemote {
 
 	/**
